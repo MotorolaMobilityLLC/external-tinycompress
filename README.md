@@ -1,2 +1,0 @@
-# external-tinycompress
-Motorla tinycompress
