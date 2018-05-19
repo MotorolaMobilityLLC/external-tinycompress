@@ -14,7 +14,7 @@ LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS := -Wno-macro-redefined -Wno-unused-function
+LOCAL_CFLAGS := -Wno-macro-redefined -Wno-unused-function -Wno-unused-variable
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/techpack/audio/include
