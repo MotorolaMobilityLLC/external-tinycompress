@@ -22,6 +22,26 @@ cc_library_shared {
     ],
 }
 
+cc_library_shared {
+    name: "libsystinycompress",
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-macro-redefined",
+        "-Wno-unused-function",
+    ],
+    export_include_dirs: ["include"],
+    srcs: [
+        "compress.c",
+        "utils.c",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+    ],
+}
+
 cc_binary {
     name: "cplay",
     vendor: true,
