@@ -66,14 +66,20 @@ extern "C" {
  * @codec: codec type and parameters requested
  */
 struct compr_config {
-	__u32 fragment_size;
-	__u32 fragments;
-	struct snd_codec *codec;
+       __u32 fragment_size;
+       __u32 fragments;
+       struct snd_codec *codec;
 };
 
 struct compr_gapless_mdata {
-	__u32 encoder_delay;
-	__u32 encoder_padding;
+       __u32 encoder_delay;
+       __u32 encoder_padding;
+};
+
+struct compr_mdata {
+       int bitrate;
+       int samplerate;
+       int channel;
 };
 
 #define COMPRESS_OUT        0x20000000
@@ -312,12 +318,17 @@ unsigned int compress_get_alsa_rate(unsigned int rate);
 #ifdef ENABLE_EXTENDED_COMPRESS_FORMAT
 /* set metadata */
 int compress_set_metadata(struct compress *compress,
-	    struct snd_compr_metadata *mdata);
+            struct snd_compr_metadata *mdata);
 
 /* get metadata */
 int compress_get_metadata(struct compress *compress,
-	    struct snd_compr_metadata *mdata);
+            struct snd_compr_metadata *mdata);
 #endif
+
+int sprd_compress_set_metadata(struct compress *compress,
+            struct compr_mdata *mdata);
+
+int compress_setparam(struct compress *compress);
 
 #if defined(__cplusplus)
 }
