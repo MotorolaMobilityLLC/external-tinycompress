@@ -76,11 +76,6 @@ struct compr_gapless_mdata {
        __u32 encoder_padding;
 };
 
-struct compr_mdata {
-       int bitrate;
-       int samplerate;
-       int channel;
-};
 
 #define COMPRESS_OUT        0x20000000
 #define COMPRESS_IN         0x10000000
@@ -324,11 +319,6 @@ int compress_set_metadata(struct compress *compress,
 int compress_get_metadata(struct compress *compress,
             struct snd_compr_metadata *mdata);
 #endif
-
-int sprd_compress_set_metadata(struct compress *compress,
-            struct compr_mdata *mdata);
-
-int compress_setparam(struct compress *compress);
 
 #if defined(__cplusplus)
 }
