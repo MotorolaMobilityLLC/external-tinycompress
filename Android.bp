@@ -28,6 +28,7 @@ cc_library_shared {
         "-Werror",
         "-Wno-macro-redefined",
         "-Wno-unused-function",
+        "-DSPRD_COMPRESS"
     ],
     export_include_dirs: ["include"],
     srcs: [
